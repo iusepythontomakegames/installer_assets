@@ -1,0 +1,33 @@
+SCFB OS src10 — vintilities (organizational router management)
+==============================================================
+Applied SYSREQ vintilities-terminal-command (filed by vintilities.se).
+
+New files
+---------
+- apps/vint.c, apps/vint.h — the vintilities interactive shell:
+  warning banner on entry (org-owned WiFi only, not for malicious use),
+  devices (inventory + live AP scan), traffic (shape/limit/prioritize),
+  deauth (rogue-device containment queue, org APs only), https
+  (org-CA inspection gate, real capture via the kernel TLS 1.3 stack,
+  read + write of session contents), route (list/add/del), status,
+  help, clear, exit. SOD audit log entry for every command.
+
+Patched files (in your src9 tree, already applied + rebuilt)
+-----------------------------------------------------------
+- apps/terminalL.h   — vint_request flag on TerminalLState
+- apps/terminalL.c   — `vintilities` command + help entry
+- apps/terminal.c    — shell_mode 3, "vint $" prompt (both render
+                        paths), vint_run_line dispatch on Enter
+- Makefile           — apps/vint.c added to the kernel build
+
+Verified in QEMU (full serial transcript: qemu_transcript.log)
+--------------------------------------------------------------
+- sudo run /usr/bin/vintilities.se prints the org-use warning and
+  files /etc/vintilities.sysreq
+- `vintilities` opens the interactive shell; all commands exercised:
+  devices add, deauth add/list (containment queue), traffic add/list
+  (512 kbps + prio 5/7), route add/list, status, https ca on
+- https read https://example.com captured 511 bytes over the REAL
+  kernel TLS 1.3 stack ("TLS 1.3 established with example.com"),
+  decrypted, listed, rewritten via https write
+- exit returns to terminalL; SOD audit entries per command

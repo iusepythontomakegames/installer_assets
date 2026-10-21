@@ -1,0 +1,27 @@
+SYSREQ v1 - SCFB OS system change request
+id: vintilities-terminal-command
+from: vintilities.se (SEPERM: root + fs + net, requested at launch)
+change: edit the terminalL command table (apps/terminalL.c)
+add terminal command: vintilities
+binding: typing 'vintilities' launches /usr/bin/vintilities.se,
+         then terminalL opens the vintilities shell (interactive,
+         same host pattern as bobs/tobs: shell_request style mode)
+shell: vintilities - organizational router management
+scope: organization-owned WiFi only, with admin consent
+commands:
+  help            - command list + acceptable-use warning
+  warning         - show the org-use warning
+  devices         - list devices on the organization AP
+  traffic         - manage traffic (shape / limit / prioritize)
+  deauth          - manage deauth signals (rogue/unauthorized
+                    device containment on org APs only)
+  deauth list     - list pending/active deauth targets
+  https           - decrypt HTTPS via org-deployed CA
+  https read     - read contents of captured HTTPS sessions
+  https write    - read-write contents of org-managed sessions
+  route           - routing table (list / add / delete)
+  status         - router/AP status
+  exit            - leave the vintilities shell
+gates: root required for every command; SOD audit log entry per
+       command; org-use warning must print on shell entry
+requested: apply at the next terminalL build (src10)

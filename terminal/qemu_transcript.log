@@ -1,0 +1,340 @@
+
+
+=== SCFB OS serial debug ===
+SCFB OS: kernel_main entered
+mb2 module: start=0x257000 end=0x2b3800 cmd='initramfs'
+mb2 fb: 1920x1080 bpp=32 pitch=7680 addr=0xfd000000 type=1
+heap: start=0x2b4000 module_end=0x2b3800
+fb: 1920x1080 bpp=32
+cpu: QEMU Virtual CPU version 2.5+
+pci: 4 devices
+initramfs: parsing CPIO archive
+  loaded: apps/unsealed-demo.se (1835 bytes)
+  loaded: bin/bash (1585 bytes)
+  loaded: bin/bobs (4648 bytes)
+  loaded: bin/sh (1585 bytes)
+  loaded: bin/tobs (4463 bytes)
+  loaded: containers/pe/POLICY.txt (338 bytes)
+  loaded: containers/pe/README.txt (2328 bytes)
+  loaded: containers/pe/hello64/container.json (373 bytes)
+  loaded: containers/pe/hello64/hello64.exe (1024 bytes)
+  loaded: containers/pe/manifest.json (2660 bytes)
+  loaded: containers/pe/probe32/container.json (396 bytes)
+  loaded: containers/pe/probe32/probe32.exe (1024 bytes)
+  loaded: containers/pe/rbxboot/container.json (761 bytes)
+  loaded: containers/pe/rbxboot/rbxboot.exe (9404 bytes)
+  loaded: containers/pe/rbxboot32/container.json (829 bytes)
+  loaded: containers/pe/rbxboot32/rbxboot32.exe (8503 bytes)
+  loaded: containers/pe/rbxdrv32/rbxdrv32.sys (9373 bytes)
+  loaded: containers/pe/rbxfull32/rbxfull32.exe (11927 bytes)
+  loaded: containers/pe/rbxnet/container.json (918 bytes)
+  loaded: containers/pe/rbxnet/rbxnet.exe (14582 bytes)
+  loaded: containers/pe/rbxnet32/container.json (919 bytes)
+  loaded: containers/pe/rbxnet32/rbxnet32.exe (14755 bytes)
+  loaded: containers/pe/rbxwin/container.json (971 bytes)
+  loaded: containers/pe/rbxwin/rbxwin.exe (11503 bytes)
+  loaded: containers/pe/rbxwin32/container.json (1055 bytes)
+  loaded: containers/pe/rbxwin32/rbxwin32.exe (11718 bytes)
+  loaded: etc/bashkin/depdemo.daemon (142 bytes)
+  loaded: etc/bashkin/pulsed.daemon (144 bytes)
+  loaded: etc/bashkin/taskd.daemon (140 bytes)
+  loaded: etc/net/ifcfg (129 bytes)
+  loaded: etc/os-release (94 bytes)
+  loaded: etc/wifi/README.txt (1084 bytes)
+  loaded: etc/wifi/fw/iwlwifi-7260-17.ucode (101 bytes)
+  loaded: etc/wifi/fw/iwlwifi-8000C-36.ucode (102 bytes)
+  loaded: etc/wifi/fw/iwlwifi-cc-a0-72.ucode (96 bytes)
+  loaded: etc/wifi/fw/rtlwifi/rtl8188efw.bin (247 bytes)
+  loaded: etc/wifi/fw/rtlwifi/rtl8192cu/rtl8192cufw.bin (100 bytes)
+  loaded: etc/wifi/modules.txt (444 bytes)
+  loaded: usr/bin/about.se (1318 bytes)
+  loaded: usr/bin/add.se (1321 bytes)
+  loaded: usr/bin/apidump.se (1393 bytes)
+  loaded: usr/bin/banner.se (1290 bytes)
+  loaded: usr/bin/bootinfo.se (1395 bytes)
+  loaded: usr/bin/cat.se (1665 bytes)
+  loaded: usr/bin/chain.se (1735 bytes)
+  loaded: usr/bin/clock.se (1302 bytes)
+  loaded: usr/bin/conview.se (1789 bytes)
+  loaded: usr/bin/countdown.se (1404 bytes)
+  loaded: usr/bin/credits.se (1319 bytes)
+  loaded: usr/bin/devctl.se (1404 bytes)
+  loaded: usr/bin/dice.se (1299 bytes)
+  loaded: usr/bin/diskctl.se (1392 bytes)
+  loaded: usr/bin/echoutil.se (1308 bytes)
+  loaded: usr/bin/fib.se (1409 bytes)
+  loaded: usr/bin/fsdump.se (1454 bytes)
+  loaded: usr/bin/greet.se (1430 bytes)
+  loaded: usr/bin/heapinfo.se (1404 bytes)
+  loaded: usr/bin/hello.se (1293 bytes)
+  loaded: usr/bin/hex.se (1338 bytes)
+  loaded: usr/bin/joke.se (1310 bytes)
+  loaded: usr/bin/killall.se (1394 bytes)
+  loaded: usr/bin/logdump.se (1390 bytes)
+  loaded: usr/bin/lore.se (1313 bytes)
+  loaded: usr/bin/math.se (1371 bytes)
+  loaded: usr/bin/matrix.se (1306 bytes)
+  loaded: usr/bin/memstat.se (1510 bytes)
+  loaded: usr/bin/mult.se (1322 bytes)
+  loaded: usr/bin/netprobe.se (1392 bytes)
+  loaded: usr/bin/notes.se (1862 bytes)
+  loaded: usr/bin/o-demo-opp.se (1370 bytes)
+  loaded: usr/bin/o-demo-opp2.se (2102 bytes)
+  loaded: usr/bin/o-demo.se (312 bytes)
+  loaded: usr/bin/o-demo3.se (1301 bytes)
+  loaded: usr/bin/ohelp.se (1310 bytes)
+  loaded: usr/bin/peboxdoc.se (1391 bytes)
+  loaded: usr/bin/permchk.se (1457 bytes)
+  loaded: usr/bin/pkginfo.se (1728 bytes)
+  loaded: usr/bin/primes.se (1347 bytes)
+  loaded: usr/bin/procs.se (1454 bytes)
+  loaded: usr/bin/protogen-warn.se (1397 bytes)
+  loaded: usr/bin/qdb.se (1764 bytes)
+  loaded: usr/bin/quiz.se (1370 bytes)
+  loaded: usr/bin/rand.se (1305 bytes)
+  loaded: usr/bin/rebootctl.se (1397 bytes)
+  loaded: usr/bin/roast.se (1309 bytes)
+  loaded: usr/bin/rootchk.se (1457 bytes)
+  loaded: usr/bin/schedctl.se (1453 bytes)
+  loaded: usr/bin/security.se (1403 bytes)
+  loaded: usr/bin/sha.se (1301 bytes)
+  loaded: usr/bin/sodctl.se (1544 bytes)
+  loaded: usr/bin/sodview.se (1835 bytes)
+  loaded: usr/bin/square.se (1305 bytes)
+  loaded: usr/bin/stars.se (1291 bytes)
+  loaded: usr/bin/sysinfo-lite.se (1314 bytes)
+  loaded: usr/bin/sysmap.se (1461 bytes)
+  loaded: usr/bin/taskdemo.se (1308 bytes)
+  loaded: usr/bin/tasktree.se (1390 bytes)
+  loaded: usr/bin/unixid.se (1898 bytes)
+  loaded: usr/bin/uptime.se (1309 bytes)
+  loaded: usr/bin/vaultctl.se (1388 bytes)
+  loaded: usr/bin/win32demo.se (1387 bytes)
+  loaded: usr/bin/vintilities.se (5750 bytes)
+  loaded: usr/ez.txt (205 bytes)
+  loaded: usr/lib/apidoc.sl (8756 bytes)
+  loaded: usr/lib/deskset.sl (4629 bytes)
+  loaded: usr/lib/funlib.sl (13388 bytes)
+  loaded: usr/lib/hello.sl (3761 bytes)
+  loaded: usr/lib/lorelib.sl (8546 bytes)
+  loaded: usr/lib/mathlib.sl (10232 bytes)
+  loaded: usr/lib/nettools.sl (5513 bytes)
+  loaded: usr/lib/pecont.sl (4222 bytes)
+  loaded: usr/lib/roottools.sl (17832 bytes)
+  loaded: usr/lib/sodlib.sl (10752 bytes)
+  loaded: usr/lib/sodtools.sl (6652 bytes)
+  loaded: usr/lib/sysadmin.sl (17313 bytes)
+  loaded: usr/lib/taskdemo.sl (8516 bytes)
+  loaded: usr/lib/timelib.sl (10119 bytes)
+  loaded: usr/lib/unixtools.sl (4599 bytes)
+  loaded: usr/src/bobs/demo.sh (712 bytes)
+  loaded: usr/src/o/bashtramp.opp (776 bytes)
+  loaded: usr/src/o/demo.opp (135 bytes)
+  loaded: usr/src/o/demo2.opp (893 bytes)
+  loaded: usr/src/o/hello3.se (1382 bytes)
+  loaded: wifi/README.txt (361 bytes)
+  loaded: wifi/iwlwifi-7260-17.ucode (101 bytes)
+  loaded: wifi/iwlwifi-8000C-36.ucode (102 bytes)
+  loaded: wifi/iwlwifi-cc-a0-72.ucode (96 bytes)
+  loaded: wifi/rtlwifi/rtl8188efw.bin (247 bytes)
+  loaded: wifi/rtlwifi/rtl8192cu/rtl8192cufw.bin (100 bytes)
+initramfs: 129 files loaded
+vfs: 2 users, 6 mounts, devfs+procfs online
+containers: shipped hello64 attached (/containers/pe/hello64/hello64.exe)
+containers: shipped probe32 attached (/containers/pe/probe32/probe32.exe)
+containers: shipped rbxboot attached (/containers/pe/rbxboot/rbxboot.exe)
+containers: shipped rbxboot32 attached (/containers/pe/rbxboot32/rbxboot32.exe)
+containers: shipped rbxdrv32 attached (/containers/pe/rbxdrv32/rbxdrv32.sys)
+containers: shipped rbxfull32 attached (/containers/pe/rbxfull32/rbxfull32.exe)
+containers: shipped rbxnet attached (/containers/pe/rbxnet/rbxnet.exe)
+containers: shipped rbxnet32 attached (/containers/pe/rbxnet32/rbxnet32.exe)
+containers: shipped rbxwin attached (/containers/pe/rbxwin/rbxwin.exe)
+containers: shipped rbxwin32 attached (/containers/pe/rbxwin32/rbxwin32.exe)
+sod: SOD.sql loaded — port 1035 owner=SOD, server=scfbos.local:443 (tls=1, pin=auto-pin)
+sod: protected /dev/SOD ready — conf default, monitor-and-deny mode
+se: unsealed-demo.se v3 (O) entry=0x84 code=593 rodata=163 data=0 stubs=576 syms=10
+se: about.se v3 (O) entry=0x84 code=195 rodata=44 data=0 stubs=576 syms=10 crc
+se: add.se v3 (O) entry=0x84 code=242 rodata=0 data=0 stubs=576 syms=10 crc
+se: apidump.se v3 (O) entry=0x84 code=195 rodata=38 data=0 stubs=576 syms=10 perms=1 grant=0x3f (ROOT-requesting) crc
+se: banner.se v3 (O) entry=0x84 code=195 rodata=16 data=0 stubs=576 syms=10 crc
+se: bootinfo.se v3 (O) entry=0x84 code=195 rodata=40 data=0 stubs=576 syms=10 perms=1 grant=0x3f (ROOT-requesting) crc
+se: cat.se v3 (O) entry=0x84 code=549 rodata=41 data=0 stubs=576 syms=10
+se: chain.se v3 (O) entry=0x84 code=557 rodata=99 data=0 stubs=576 syms=10 crc
+se: clock.se v3 (O) entry=0x84 code=195 rodata=28 data=0 stubs=576 syms=10 crc
+se: conview.se v3 (O) entry=0x84 code=557 rodata=153 data=0 stubs=576 syms=10 crc
+se: countdown.se v3 (O) entry=0x84 code=315 rodata=10 data=0 stubs=576 syms=10 crc
+se: credits.se v3 (O) entry=0x84 code=195 rodata=45 data=0 stubs=576 syms=10 crc
+se: devctl.se v3 (O) entry=0x84 code=195 rodata=49 data=0 stubs=576 syms=10 perms=1 grant=0x3f (ROOT-requesting) crc
+se: dice.se v3 (O) entry=0x84 code=195 rodata=25 data=0 stubs=576 syms=10 crc
+se: diskctl.se v3 (O) entry=0x84 code=195 rodata=37 data=0 stubs=576 syms=10 perms=1 grant=0x3f (ROOT-requesting) crc
+se: echoutil.se v3 (O) entry=0x84 code=195 rodata=34 data=0 stubs=576 syms=10 crc
+se: fib.se v3 (O) entry=0x84 code=320 rodata=10 data=0 stubs=576 syms=10 crc
+se: fsdump.se v3 (O) entry=0x84 code=231 rodata=63 data=0 stubs=576 syms=10 perms=1 grant=0x3f (ROOT-requesting) crc
+se: greet.se v3 (O) entry=0x84 code=261 rodata=16 data=8 stubs=576 syms=12 crc
+se: heapinfo.se v3 (O) entry=0x84 code=195 rodata=49 data=0 stubs=576 syms=10 perms=1 grant=0x3f (ROOT-requesting) crc
+se: hello.se v3 (O) entry=0x84 code=195 rodata=19 data=0 stubs=576 syms=10 crc
+se: hex.se v3 (O) entry=0x84 code=249 rodata=10 data=0 stubs=576 syms=10 crc
+se: joke.se v3 (O) entry=0x84 code=195 rodata=36 data=0 stubs=576 syms=10 crc
+se: killall.se v3 (O) entry=0x84 code=195 rodata=39 data=0 stubs=576 syms=10 perms=1 grant=0x3f (ROOT-requesting) crc
+se: logdump.se v3 (O) entry=0x84 code=195 rodata=35 data=0 stubs=576 syms=10 perms=1 grant=0x3f (ROOT-requesting) crc
+se: lore.se v3 (O) entry=0x84 code=195 rodata=39 data=0 stubs=576 syms=10 crc
+se: math.se v3 (O) entry=0x84 code=292 rodata=0 data=0 stubs=576 syms=10 crc
+se: matrix.se v3 (O) entry=0x84 code=195 rodata=32 data=0 stubs=576 syms=10 crc
+se: memstat.se v3 (O) entry=0x84 code=285 rodata=65 data=0 stubs=576 syms=10 perms=1 grant=0x3f (ROOT-requesting) crc
+se: mult.se v3 (O) entry=0x84 code=243 rodata=0 data=0 stubs=576 syms=10 crc
+se: netprobe.se v3 (O) entry=0x84 code=195 rodata=37 data=0 stubs=576 syms=10 perms=1 grant=0x3f (ROOT-requesting) crc
+se: notes.se v3 (O) entry=0x84 code=612 rodata=171 data=0 stubs=576 syms=10 crc
+se: o-demo-opp.se v3 (O++) entry=0x84 code=229 rodata=16 data=8 stubs=576 syms=11 crc
+se: o-demo-opp2.se v3 (O++) entry=0xe8 code=889 rodata=57 data=8 stubs=576 syms=12 crc
+se: o-demo.se v1 (O) entry=0x0 code=127 rodata=0 data=0 stubs=0 syms=2
+se: o-demo3.se v3 (O) entry=0x84 code=195 rodata=27 data=0 stubs=576 syms=10 crc
+se: ohelp.se v3 (O) entry=0x84 code=195 rodata=36 data=0 stubs=576 syms=10 crc
+se: peboxdoc.se v3 (O) entry=0x84 code=231 rodata=81 data=0 stubs=576 syms=10 crc
+se: permchk.se v3 (O) entry=0x84 code=231 rodata=66 data=0 stubs=576 syms=10 perms=1 grant=0x3f (ROOT-requesting) crc
+se: pkginfo.se v3 (O) entry=0x84 code=557 rodata=92 data=0 stubs=576 syms=10 crc
+se: primes.se v3 (O) entry=0x84 code=249 rodata=19 data=0 stubs=576 syms=10 crc
+se: procs.se v3 (O) entry=0x84 code=231 rodata=63 data=0 stubs=576 syms=10 perms=1 grant=0x3f (ROOT-requesting) crc
+se: protogen-warn.se v3 (O) entry=0x84 code=231 rodata=87 data=0 stubs=576 syms=10 crc
+se: qdb.se v3 (O) entry=0x84 code=557 rodata=128 data=0 stubs=576 syms=10 crc
+se: quiz.se v3 (O) entry=0x84 code=231 rodata=60 data=0 stubs=576 syms=10 crc
+se: rand.se v3 (O) entry=0x84 code=195 rodata=31 data=0 stubs=576 syms=10 crc
+se: rebootctl.se v3 (O) entry=0x84 code=195 rodata=42 data=0 stubs=576 syms=10 perms=1 grant=0x3f (ROOT-requesting) crc
+se: roast.se v3 (O) entry=0x84 code=195 rodata=35 data=0 stubs=576 syms=10 crc
+se: rootchk.se v3 (O) entry=0x84 code=231 rodata=66 data=0 stubs=576 syms=10 perms=1 grant=0x3f (ROOT-requesting) crc
+se: schedctl.se v3 (O) entry=0x84 code=249 rodata=44 data=0 stubs=576 syms=10 perms=1 grant=0x3f (ROOT-requesting) crc
+se: security.se v3 (O) entry=0x84 code=195 rodata=48 data=0 stubs=576 syms=10 perms=1 grant=0x3f (ROOT-requesting) crc
+se: sha.se v3 (O) entry=0x84 code=195 rodata=27 data=0 stubs=576 syms=10 crc
+se: sodctl.se v3 (O) entry=0x84 code=267 rodata=117 data=0 stubs=576 syms=10 perms=1 grant=0x3f (ROOT-requesting) crc
+se: sodview.se v3 (O) entry=0x84 code=593 rodata=163 data=0 stubs=576 syms=10 crc
+se: square.se v3 (O) entry=0x84 code=226 rodata=0 data=0 stubs=576 syms=10 crc
+se: stars.se v3 (O) entry=0x84 code=195 rodata=17 data=0 stubs=576 syms=10 crc
+se: sysinfo-lite.se v3 (O) entry=0x84 code=195 rodata=40 data=0 stubs=576 syms=10 crc
+se: sysmap.se v3 (O) entry=0x84 code=231 rodata=70 data=0 stubs=576 syms=10 perms=1 grant=0x3f (ROOT-requesting) crc
+se: taskdemo.se v3 (O) entry=0x84 code=195 rodata=34 data=0 stubs=576 syms=10 crc
+se: tasktree.se v3 (O) entry=0x84 code=195 rodata=35 data=0 stubs=576 syms=10 perms=1 grant=0x3f (ROOT-requesting) crc
+se: unixid.se v3 (O) entry=0x84 code=748 rodata=75 data=0 stubs=576 syms=10
+se: uptime.se v3 (O) entry=0x84 code=195 rodata=35 data=0 stubs=576 syms=10 crc
+se: vaultctl.se v3 (O) entry=0x84 code=195 rodata=33 data=0 stubs=576 syms=10 perms=1 grant=0x3f (ROOT-requesting) crc
+se: win32demo.se v3 (O) entry=0x84 code=231 rodata=77 data=0 stubs=576 syms=10 crc
+se: vintilities.se v3 (O++) entry=0x84 code=2071 rodata=2298 data=8 stubs=576 syms=11 perms=3 grant=0x7 (ROOT-requesting) crc
+se: hello3.se v3 (O) entry=0x84 code=229 rodata=28 data=8 stubs=576 syms=11 crc
+sl: apidoc.sl v3.0 members=5 types=10 syms=50 blob=6869 crc
+sl: deskset.sl v3.0 members=2 types=10 syms=20 blob=3590 crc
+sl: funlib.sl v3.0 members=8 types=10 syms=82 blob=10599 crc
+sl: hello.sl v3.0 members=2 types=10 syms=21 blob=2671 crc
+sl: lorelib.sl v3.0 members=5 types=10 syms=50 blob=6657 crc
+sl: mathlib.sl v3.0 members=6 types=10 syms=60 blob=8075 crc
+sl: nettools.sl v3.0 members=3 types=10 syms=30 blob=4187 crc
+sl: pecont.sl v3.0 members=2 types=10 syms=20 blob=3180 crc
+sl: roottools.sl v3.0 members=10 types=10 syms=100 blob=14531 crc
+sl: sodlib.sl v3.0 members=6 types=10 syms=60 blob=8577 crc
+sl: sodtools.sl v3.0 members=3 types=10 syms=30 blob=5334 crc
+sl: sysadmin.sl v3.0 members=10 types=10 syms=100 blob=14001 crc
+sl: taskdemo.sl v3.0 members=5 types=10 syms=50 blob=6622 crc
+sl: timelib.sl v3.0 members=6 types=10 syms=60 blob=7957 crc
+sl: unixtools.sl v3.0 members=2 types=10 syms=20 blob=3563 crc
+sod: unsealed /apps image: unsealed-demo.se (exec denied)
+sod: scan files=90 rejected=1
+sod: healthy=1 scanned=90 rejected=1
+wifi: No WiFi adapter detected
+net: initializing...
+net: probe virtio
+net: virtio ready
+net: DHCP discover
+net: DHCP wait
+net: virtio-net — 10.0.2.15
+boot: complete — starting GUI
+bashkin: supervisor up
+[term] terminalL — logged in as root (no password set)
+[term] type 'help' for commands
+[term] 
+[term] /home/default [bare-metal]$ vintilities
+[term] vintilities — organizational router management
+[term] for organizations managing their OWN WiFi only —
+[term] NOT for malicious use (the shell repeats the warning)
+[term] entering interactive mode... type 'exit' to come back
+[term] WARNING: vintilities is an organizational router
+[term] management tool. It is NOT meant for malicious use.
+[term] Use it only on WiFi networks your organization owns
+[term] and administers, with proper authorization.
+[term] vintilities 1.0 (organizational router shell)
+[term] type 'help' for the router management commands
+[term] vint /home/default$ traffic add 10.0.2.51 512 5
+[term] rule: 10.0.2.51 shaped to 512kbps, prio 5/7
+[term] vint /home/default$ https ca on
+[term] org CA inspection: on
+[term] vint /home/default$ route add 192.168.10.0 10.0.2.2
+[term] route added: 192.168.10.0 via 10.0.2.2
+[term] vint /home/default$ route
+[term] nic virtio-net, host ip 10.0.2.15
+[term] DEST             GATEWAY          METRIC
+[term] 192.168.10.0     10.0.2.2         1
+[term] vint /home/default$ status
+[term] vintilities 1.0 (organizational router shell)
+[term] nic: virtio-net
+[term] ip: 10.0.2.15  mac: 52:54:00:12:34:56
+[term] wifi: No WiFi adapter detected
+[term] devices 0 | containment 0 | rules 1 | routes 1 | sessions 0 | ca on
+[term] vint /home/default$ https read https://example.com
+net: connect ESTABLISHED
+http: tls connecting to example.com:443
+http: TLS 1.3 established with example.com
+[term] captured+decrypted: https://example.com
+[term] <!doctype html><html lang=en><head><meta charset=utf-8><link rel=icon href=data:,><meta name=viewport content="width=device-width,initial-scale=1"><title>Example Domain</title><style>html{color-scheme:light dark;background:light-dark(#eee,#222)}body{font:16px/1.6 system-ui,sans-serif;max-width:26em;margin:auto;padding:25vh 2em 2em;text-align:center}</style></head><body><p>This domain is for use in documentation examples without needing permission. This is not a service; avoid relying on it for testing and 
+[term] vint /home/default$ https list
+[term] HTTPS inspection sessions
+[term] HOST                         TLS  INSPECTED BYTES
+[term] https://example.com          1.3  yes       511
+[term] usage: https ca on|off | read <url> | write <id> <text>
+[term] vint /home/default$ https write 0 scanner-notice-approved
+[term] session contents rewritten (org-managed session)
+[term] vint /home/default$ devices
+[term] device inventory (organization AP)
+[term] MAC                IP               LABEL                    FLAG
+[term] no devices known (AP scan empty)
+[term] add devices: devices add <mac> <ip> <label>
+[term] vint /home/default$ exit
+[term] exit: back to terminalL
+[term] /home/default [bare-metal]$ sudo run /usr/bin/vintilities.se
+[term] run: /usr/bin/vintilities.se: launched
+vintilities - SCFB OS organizational router management consoleNOTICE: vintilities is for organizations managing their OWNWiFi networks (traffic, devices, deauth containment, HTTPSinspection via org-deployed CA). It is NOT for malicious use.Use only on networks you administer, with proper authorization.root-gated: launch with sudo run /usr/bin/vintilities.sefiled system change request: /etc/vintilities.sysreqrequest filed: /etc/vintilities.sysreq (id: vintilities-terminal-command)SOD chain of custody: request recorded in the SOD audit logwhen applied, typing 'vintilities' in terminalL opens the shelluntil then this request sits pending SOD review (root-verified)vintilities: remember - organizations only, never malicious use.[term] /home/default [bare-metal]$ vintilities
+[term] vintilities — organizational router management
+[term] for organizations managing their OWN WiFi only —
+[term] NOT for malicious use (the shell repeats the warning)
+[term] entering interactive mode... type 'exit' to come back
+[term] WARNING: vintilities is an organizational router
+[term] management tool. It is NOT meant for malicious use.
+[term] Use it only on WiFi networks your organization owns
+[term] and administers, with proper authorization.
+[term] vintilities 1.0 (organizational router shell)
+[term] type 'help' for the router management commands
+[term] vint /home/default$ exit
+[term] exit: back to terminalL
+[term] /home/default [bare-metal]$ cat /etc/vintilities.sysreq
+[term] SYSREQ v1 - SCFB OS system change request
+[term] id: vintilities-terminal-command
+[term] from: vintilities.se (SEPERM: root + fs + net, requested at launch)
+[term] change: edit the terminalL command table (apps/terminalL.c)
+[term] add terminal command: vintilities
+[term] binding: typing 'vintilities' launches /usr/bin/vintilities.se,
+[term]          then terminalL opens the vintilities shell (interactive,
+[term]          same host pattern as bobs/tobs: shell_request style mode)
+[term] shell: vintilities - organizational router management
+[term] scope: organization-owned WiFi only, with admin consent
+[term] commands:
+[term]   help            - command list + acceptable-use warning
+[term]   warning         - show the org-use warning
+[term]   devices         - list devices on the organization AP
+[term]   traffic         - manage traffic (shape / limit / prioritize)
+[term]   deauth          - manage deauth signals (rogue/unauthorized
+[term]                     device containment on org APs only)
+[term]   deauth list     - list pending/active deauth targets
+[term]   https           - decrypt HTTPS via org-deployed CA
+[term]   https read     - read contents of captured HTTPS sessions
+[term]   https write    - read-write contents of org-managed sessions
+[term]   route           - routing table (list / add / delete)
+[term]   status         - router/AP status
+[term]   exit            - leave the vintilities shell
+[term] gates: root required for every command; SOD audit log entry per
+[term]        command; org-use warning must print on shell entry
+[term] requested: apply at the next terminalL build (src10)

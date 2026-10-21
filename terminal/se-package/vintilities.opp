@@ -1,0 +1,54 @@
+// vintilities.opp - SEFMT 3.0, O++ (tools/ocomp-se3.py)
+// Registers a system change request: add the terminal
+// command "vintilities" so typing it opens the vintilities
+// shell (organizational router management). Built with a
+// SEPERM manifest: root + fs + net (requested at launch).
+
+function main() {
+    write("vintilities - SCFB OS organizational router management console");
+    write("NOTICE: vintilities is for organizations managing their OWN");
+    write("WiFi networks (traffic, devices, deauth containment, HTTPS");
+    write("inspection via org-deployed CA). It is NOT for malicious use.");
+    write("Use only on networks you administer, with proper authorization.");
+    write("root-gated: launch with sudo run /usr/bin/vintilities.se");
+    int fd = fopen("/etc/vintilities.sysreq", 769);
+    if (fd < 0) then {
+        write("cannot open /etc/vintilities.sysreq - FS permission denied?");
+    }
+    else {
+        fwrite(fd, "SYSREQ v1 - SCFB OS system change request\n", 42);
+        fwrite(fd, "id: vintilities-terminal-command\n", 33);
+        fwrite(fd, "from: vintilities.se (SEPERM: root + fs + net, requested at launch)\n", 68);
+        fwrite(fd, "change: edit the terminalL command table (apps/terminalL.c)\n", 60);
+        fwrite(fd, "add terminal command: vintilities\n", 34);
+        fwrite(fd, "binding: typing 'vintilities' launches /usr/bin/vintilities.se,\n", 64);
+        fwrite(fd, "         then terminalL opens the vintilities shell (interactive,\n", 66);
+        fwrite(fd, "         same host pattern as bobs/tobs: shell_request style mode)\n", 67);
+        fwrite(fd, "shell: vintilities - organizational router management\n", 54);
+        fwrite(fd, "scope: organization-owned WiFi only, with admin consent\n", 56);
+        fwrite(fd, "commands:\n", 10);
+        fwrite(fd, "  help            - command list + acceptable-use warning\n", 58);
+        fwrite(fd, "  warning         - show the org-use warning\n", 45);
+        fwrite(fd, "  devices         - list devices on the organization AP\n", 56);
+        fwrite(fd, "  traffic         - manage traffic (shape / limit / prioritize)\n", 64);
+        fwrite(fd, "  deauth          - manage deauth signals (rogue/unauthorized\n", 62);
+        fwrite(fd, "                    device containment on org APs only)\n", 56);
+        fwrite(fd, "  deauth list     - list pending/active deauth targets\n", 55);
+        fwrite(fd, "  https           - decrypt HTTPS via org-deployed CA\n", 54);
+        fwrite(fd, "  https read     - read contents of captured HTTPS sessions\n", 60);
+        fwrite(fd, "  https write    - read-write contents of org-managed sessions\n", 63);
+        fwrite(fd, "  route           - routing table (list / add / delete)\n", 56);
+        fwrite(fd, "  status         - router/AP status\n", 36);
+        fwrite(fd, "  exit            - leave the vintilities shell\n", 48);
+        fwrite(fd, "gates: root required for every command; SOD audit log entry per\n", 64);
+        fwrite(fd, "       command; org-use warning must print on shell entry\n", 58);
+        fwrite(fd, "requested: apply at the next terminalL build (src10)\n", 53);
+        fclose(fd);
+        write("filed system change request: /etc/vintilities.sysreq");
+    }
+    write("request filed: /etc/vintilities.sysreq (id: vintilities-terminal-command)");
+    write("SOD chain of custody: request recorded in the SOD audit log");
+    write("when applied, typing 'vintilities' in terminalL opens the shell");
+    write("until then this request sits pending SOD review (root-verified)");
+    write("vintilities: remember - organizations only, never malicious use.");
+}
