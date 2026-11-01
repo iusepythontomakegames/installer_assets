@@ -1,0 +1,25 @@
+SYSREQ v1 - SCFB OS system change request
+id: partman-terminal-command
+from: partman.se (SEPERM: root 1:0x01 + fs 1:0x02 + part 2:0x40)
+change: edit the terminalL command table (apps/terminalL.c)
+add terminal command: partman
+binding: typing 'partman' opens the consent page and the table;
+         'partman accept' accepts PARTEXEC for the session
+engine: kernel/part.c + kernel/part.h (MBR read-modify-write)
+syscall: SC_PARTCTL, permission PERM_PART (0x40, tier 2)
+device: /dev/ata0 - first ATA disk, MBR, 4 primary slots
+writes: sector 0 of the disk (MBR) and LBA 0 of each partition
+        touched (SCFB volume header: label, fs, root directory)
+operations:
+  list           - table, per-partition roots, largest free extent
+  info N         - geometry + volume header of slot N
+  create NAME SIZE [fs] - new partition, root /mnt/NAME
+  delete N       - free slot N (data is not recovered)
+  resize N SIZE  - set slot N to SIZE MB
+  alloc [N]      - free extents, or claim slot N's free tail
+  format N [fs]  - rewrite the volume header (scfbfs|raw|fat32|swap)
+  root N [PATH]  - set/show the root directory of slot N
+persistence: the MBR is the source of truth for geometry, the volume
+             header for label/fs/root; both survive a reboot
+gates: PARTEXEC consent at the shell + PERM_PART at the kernel;
+       an unaccepted or unelevated shell gets -EPERM and no write
