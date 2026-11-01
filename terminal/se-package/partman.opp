@@ -1,0 +1,80 @@
+// partman.opp - SEFMT 3.0, O++ (tools/ocomp-se3.py)
+// Partition-level storage management front-end for SCFB OS.
+// SEPERM v3.1 manifest: root(0x01) + fs(0x02) + part(0x40 at tier 2),
+// requested at launch. Tier 2 is the partition-level grant: the kernel
+// will not launch this image unless a task may rewrite disk geometry,
+// so the request is answered before the first instruction runs.
+//
+// The engine lives in kernel/part.c (MBR read-modify-write); the shell
+// face is terminalL `partman`. This image is the requester + consent
+// page, the same pattern as vintilities.se.
+
+function main() {
+    write("partman 1.0 - partition-level storage management (SCFB OS)\n");
+    write("==========================================================\n");
+    write("\n");
+    write("PARTEXEC: this image requests PARTITION-LEVEL EXECUTION RIGHTS.\n");
+    write("They are a separate tier from root (SEPERM level 2) and cover:\n");
+    write("  create  - a new primary partition in a free extent\n");
+    write("  delete  - free a slot, and the partition's data goes with it\n");
+    write("  resize  - an exact size in MB, grown or shrunk\n");
+    write("  alloc   - claim the free tail of an existing partition\n");
+    write("  format  - rewrite the SCFB volume header (re-format)\n");
+    write("  root    - assign the partition's root directory\n");
+    write("\n");
+    write("read-only until a command is given: this image only asks.\n");
+    write("gate: the kernel validates the SEPERM manifest and refuses the image\n");
+    write("unless root + fs + part (tier 2) are granted, so seeing this text\n");
+    write("means the request was accepted for this launch.\n");
+
+    int uid = getuid();
+    if (uid = 0) then {
+        write("PARTEXEC accepted: uid 0, partition-level tier active for this task.\n");
+    }
+    else {
+        write("PARTEXEC refused: this task is not root, so nothing is written.\n");
+        write("re-run it as root (sudo run /usr/bin/partman.se).\n");
+    }
+
+    int fd = fopen("/etc/partman.sysreq", 769);
+    if (fd < 0) then {
+        write("cannot open /etc/partman.sysreq - FS permission denied?\n");
+    }
+    else {
+        fwrite(fd, "SYSREQ v1 - SCFB OS system change request\n", 42);
+        fwrite(fd, "id: partman-terminal-command\n", 29);
+        fwrite(fd, "from: partman.se (SEPERM: root 1:0x01 + fs 1:0x02 + part 2:0x40)\n", 65);
+        fwrite(fd, "change: edit the terminalL command table (apps/terminalL.c)\n", 60);
+        fwrite(fd, "add terminal command: partman\n", 30);
+        fwrite(fd, "binding: typing 'partman' opens the consent page and the table;\n", 64);
+        fwrite(fd, "         'partman accept' accepts PARTEXEC for the session\n", 59);
+        fwrite(fd, "engine: kernel/part.c + kernel/part.h (MBR read-modify-write)\n", 62);
+        fwrite(fd, "syscall: SC_PARTCTL, permission PERM_PART (0x40, tier 2)\n", 57);
+        fwrite(fd, "device: /dev/ata0 - first ATA disk, MBR, 4 primary slots\n", 57);
+        fwrite(fd, "writes: sector 0 of the disk (MBR) and LBA 0 of each partition\n", 63);
+        fwrite(fd, "        touched (SCFB volume header: label, fs, root directory)\n", 64);
+        fwrite(fd, "operations:\n", 12);
+        fwrite(fd, "  list           - table, per-partition roots, largest free extent\n", 67);
+        fwrite(fd, "  info N         - geometry + volume header of slot N\n", 54);
+        fwrite(fd, "  create NAME SIZE [fs] - new partition, root /mnt/NAME\n", 56);
+        fwrite(fd, "  delete N       - free slot N (data is not recovered)\n", 55);
+        fwrite(fd, "  resize N SIZE  - set slot N to SIZE MB\n", 41);
+        fwrite(fd, "  alloc [N]      - free extents, or claim slot N's free tail\n", 61);
+        fwrite(fd, "  format N [fs]  - rewrite the volume header (scfbfs|raw|fat32|swap)\n", 69);
+        fwrite(fd, "  root N [PATH]  - set/show the root directory of slot N\n", 57);
+        fwrite(fd, "persistence: the MBR is the source of truth for geometry, the volume\n", 69);
+        fwrite(fd, "             header for label/fs/root; both survive a reboot\n", 61);
+        fwrite(fd, "gates: PARTEXEC consent at the shell + PERM_PART at the kernel;\n", 64);
+        fwrite(fd, "       an unaccepted or unelevated shell gets -EPERM and no write\n", 66);
+        fclose(fd);
+        write("filed: /etc/partman.sysreq\n");
+    }
+
+    write("request filed: /etc/partman.sysreq (id: partman-terminal-command)\n");
+    write("partition table: /dev/ata0, MBR, 4 primary slots, 1 MiB aligned\n");
+    write("use: partman            consent page + current table\n");
+    write("     partman accept     accept PARTEXEC for this session\n");
+    write("     partman list | info N | create NAME SIZE [fs]\n");
+    write("     partman delete N | resize N SIZE | alloc [N]\n");
+    write("     partman format N [fs] | root N [PATH]\n");
+}
